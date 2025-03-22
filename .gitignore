@@ -1,0 +1,17 @@
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.nav
+*.out
+*.run.xml
+*.snm
+*.toc
+instructions.pdf
+guidelines.pdf
+presentation/styles
+

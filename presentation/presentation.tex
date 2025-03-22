@@ -1,0 +1,101 @@
+\documentclass{beamer}
+\usetheme{me} % aalto theme
+
+
+% Packages for math, language, encoding etc.
+\usepackage{tikz, ctable}
+\usepackage{bm}
+\usepackage[finnish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}	
+\usepackage{amsfonts,amssymb,amsbsy,amsthm,amsmath,mathtools,enumerate,verbatim}
+\usepackage{stmaryrd} % double square brackets
+\usepackage{color, colortbl}
+\usepackage[font=scriptsize]{caption}
+\usepackage{csquotes}
+\usepackage{tabularray}
+\usepackage{hyperref}
+\usepackage{datetime}
+
+% For def of elliptical distributions
+
+% Bibliography and style.
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{sources.bib}
+\setbeamertemplate{bibliography item}{}
+
+%\usepackage[
+%  backend=biber,
+%  style=authoryear,
+%]{biblatex}
+%\addbibresource{sources.bib}
+
+% Show greyed table of contents before section.
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+\setcounter{tocdepth}{1}
+
+
+\AtBeginSubsection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{subtitle}
+    \usebeamerfont{subtitle}\insertsubsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+% Info about presentation
+\title{Keskeinen raja-arvolause ja sen sovellukset liiketoiminnassa}
+%\subtitle{}
+%\author{Jaakko Pere}
+
+\newdate{date}{25}{3}{2025}
+\date{\displaydate{date}}
+
+
+% Page number
+%\setbeamertemplate{footline}[frame number]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Agenda of the presentation}
+\tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Dummy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Test}
+  plaa
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{plaa}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Sovellukset}
+
+\begin{frame}[allowframebreaks]{Lähdeluettelo}
+  \printbibliography
+\end{frame}
+\end{document}

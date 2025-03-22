@@ -1,0 +1,3 @@
+@default_files = ('eysm.tex');
+ensure_path( 'TEXINPUTS', './styles//' );
+ensure_path( 'BSTINPUTS', './styles//' );
