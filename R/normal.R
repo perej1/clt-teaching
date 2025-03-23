@@ -3,8 +3,9 @@ library(tibble)
 
 g <- ggplot() +
   xlim(-10, 10) +
-  geom_function(fun = dnorm, args = list(mean = 0, sd = 1)) +
-  geom_function(fun = dnorm, args = list(mean = 1, sd = 3)) +
+  geom_function(fun = dnorm, args = list(mean = 0, sd = 1), n = 10000,
+                linetype = "dashed") +
+  geom_function(fun = dnorm, args = list(mean = 1, sd = 3), n = 10000) +
   theme(panel.background = element_blank(),
         axis.text = element_text(size = 15),
         axis.title = element_text(size = 15),
