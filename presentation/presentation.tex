@@ -315,17 +315,121 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Sovellukset}
+\section{Todennäköisyyksien approksimointi}
 
-\subsection{Sovellus 1: Todennäköisyyksien approksimointi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Sovellus 2: Luottamusväli}
+\section{Sovellus: Likiarvoinen luottamusväli}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Luottamusvälin määritelmä odotusarvolle}
+  \begin{itemize}
+    \item Oletetaan, että $X$ on satunnismuuttuja odotusarvolla $\mu =
+    \mathbb{E}\left(X\right)\in(-\infty, \infty)$. Olkoon $\bm X = (X_1, \ldots,
+    X_n)$ satunnaismuuttujan $X$ havaintoja.
+    \pause
+    \item Luottamustason $1-\alpha$ luottamusväli on satunnaisväli
+    $\left[\ell\left(\bm X\right), u\left(\bm X\right)\right]$, jolle pätee
+    \begin{equation*}
+      \mathbb{P}\left(\mu\in\left[\ell\left(\bm X\right), u\left(\bm
+      X\right)\right]\right) = 1 - \alpha
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Luottamusvälin approksimointi (1)}
+  Oletetaan, että satunnaismuuttujan $X$ varianssi $0 < \sigma^2 < \infty$ on
+  tiedossa. Tällöin keskeisen raja-arvolauseen mukaan
+  \begin{equation*}
+    \mathbb{P}\left(z_{\ell} \leq \frac{\mu - \bar X}{\sigma} \leq z_u\right) \approx 1 - \alpha,
+  \end{equation*}
+  \pause
+  jossa väli $[z_\ell, z_u]$ valitaan niin, että
+  \begin{equation*}
+    F(z_u) - F(z_\ell) = 1-\alpha.
+  \end{equation*}
+  Yllä $F$ on jakauman $\n\left(0,1\right)$ kertymäfunktio.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Luottamusvälin approksimointi (2)}
+  Valitsemalla esimerkiksi $z_u = z_{1 - \alpha/2}$ ja $z_\ell = -z_u$ päädymme
+  seuravaan luottamusväliin
+  \begin{equation*}
+    \left[\bar X - \sigma z_{1 - \alpha/2},
+    \bar X + \sigma z_{1 - \alpha/2}\right].
+  \end{equation*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Esimerkki: luottokorttipetokset}
+  \begin{itemize}
+    \item Otos sisältää luottokorttitapahtumia syyskuulta 2013. Tapahtumia
+    kirjattiin kahdelta päivältä
+    (Lähde: \href{https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download}{\textcolor{red}{Kaggle}}).
+    \pause
+    \item Luottokorttitapahtumia on yhteensä 284 807, joista 492 luokiteltiin
+    petoksiksi.
+    \pause
+    \item Tavoite: Estimoidaan 95\% luottamusväli petoksien osuudelle
+    luottokorttitapahtumista.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Malli}
+  \begin{itemize}
+    \item Satunnaismuuttuja $X$ noudattaa Bernoullijakaumaa tuntemattomalla
+    parametrilla $p$, jossa $p$ on petoksen todennäköisyys.
+    \item $\mathbb{P}\left(X = 1\right) = p$ ja $\mathbb{P}\left(X = 0\right) =
+    1 - p$, jossa tapahtuma $\{X = 1\}$ indikoi petosta ja $\{X = 0\}$ vastaa
+    normaalia luottokorttitapahtumaa.
+    \item Otos $x_1, \ldots x_{284807}$ on 0-1 muotoista. Oletamme, että
+    havainnot ovat riippumattomia ja samoin jakautuneita.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Ratkaisu}
+  \begin{itemize}
+    \item Voimme laskea $\mathbb{E}\left(X\right) = p$ ja $\var\left(X\right) =
+    p(1-p)$.
+    \item Suurten lukujen lain mukaan $p \approx \hat p =
+    \frac{1}{n}\sum_{i=1}^{284807} x_i$.
+    \item Joten voimme approksimoida $95\%$ luottamusvälin seuraavasti
+    \begin{equation*}
+      \left[\hat p - z_{1 - \alpha/2}\sqrt{\hat p(1-\hat p)},
+      \hat p + z_{1 - \alpha/2}\sqrt{\hat p(1-\hat p)}\right]
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Ratkaisu (2)}
+  Sijoittamalla lukuarvot
+  \begin{itemize}
+    \item $\hat p\approx 0.0017$, (\textsf{R} komento \texttt{mean(data)}) ja
+    \item $z_{1 - \alpha / 2} \approx 1.96$ (\textsf{R} komento \texttt{qnorm(1 - 0.05 / 2)})
+  \end{itemize}
+  saamme luottamusväliksi
+  \begin{equation*}
+    \approx \left[0.0016, 0.0019\right].
+  \end{equation*}
+\end{frame}
 
 \begin{frame}{Tiivistelmä}
   
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Lähdeluettelo}
-  \printbibliography
-\end{frame}
+%\begin{frame}[allowframebreaks]{Lähdeluettelo}
+%  \printbibliography
+%\end{frame}
 \end{document}
