@@ -148,13 +148,129 @@
     \begin{figure}
       \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{normal}
       \caption{Normaalijakaumat $\n\left(0,1\right)$ (katkoviiva) ja $\n\left(1, 9\right)$ (jatkuva viiva).}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Keskeinen raja-arvolause}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Simulaatio}
+  \begin{enumerate}
+    \item Simuloi otos riippumattomia ja samoin jakauneita havaintoja $x_1,
+    \ldots, x_n$ (otoskoko on $n$). Laske keskiarvo
+    \begin{equation*}
+      \bar x = \frac{1}{n}\sum_{i=1}^n x_i
+    \end{equation*}
+    \pause
+    \item Toista yllä oleva toimenpide $m = 1000$ kertaa. Näin meillä on $m$
+    keskiarvoa.
+    \pause
+    \item Piirrä histogrammi keskiarvoista.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{itemize}
+    \item Ensin simuloimme otoksia tasajakaumasta $U[0,1]$ välillä 0-1 (jakauman
+    odotusarvo on $0.5$). Kyseisen tasajakauman tiheysfunktio on
+    \begin{equation*}
+      f(x) =
+      \begin{cases}
+        1, &\textnormal{kun}\quad x\in[a,b], \\
+        0, &\textnormal{muulloin}. 
+      \end{cases}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{unif-n-1.pdf}
+      \caption{Tasajakauma $U[0,1]$, $n = 1$ ja $m = 1000$.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{unif-n-5.pdf}
+      \caption{Tasajakauma $U[0,1]$, $n = 5$ ja $m = 1000$.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{unif-n-100.pdf}
+      \caption{Tasajakauma $U[0,1]$, $n = 100$ ja $m = 1000$.}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{itemize}
+    \item Seuraavaksi simuloimme otoksia eksponenttijakaumasta $\mathrm{Exp}(1)$
+    skaalaparametrilla $\lambda = 1$ (jakauman odotusarvo on $1$). Kyseisen
+    eksponentijakauman tiheysfunktio on
+    \begin{equation*}
+      f(x) =
+      \begin{cases}
+        e^{-x}, &\textnormal{kun}\quad x\in[0,\infty), \\
+        0, &\textnormal{muulloin}. 
+      \end{cases}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{exp-n-1.pdf}
+      \caption{Eksponenttijakauma $\mathrm{Exp}\left(1\right)$, $n = 1$ ja $m = 1000$.}
   \end{figure}
 \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Keskeinen raja-arvolause}
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{exp-n-5.pdf}
+      \caption{Eksponenttijakauma $\mathrm{Exp}\left(1\right)$, $n = 5$ ja $m = 1000$.}
+  \end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{exp-n-100.pdf}
+      \caption{Eksponenttijakauma $\mathrm{Exp}\left(1\right)$, $n = 100$ ja $m = 1000$.}
+  \end{figure}
+\end{center}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
