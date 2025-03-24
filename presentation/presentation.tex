@@ -118,8 +118,8 @@
     \item Luottokorttitapahtumia on yhteensä 284 807, joista 492 luokiteltiin
     petoksiksi.
     \pause
-    \item Estimaatti luottokorttipetoksen todennäköisyydelle on $492 / 284
-    807\approx 0.0017$.
+    \item Estimaatti luottokorttipetoksen todennäköisyydelle on $\hat p = 492 /
+    284 807\approx 0.0017$.
     \pause
     \item Kuinka varma voin olla siitä, että saatu piste-estimaatti on lähellä
     populaatisuuretta?
@@ -265,13 +265,26 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Intuitio}
+  Kun otoskoko $n$ on suuri, niin melkeinpä $\bar X \sim \n\left(\mu,
+  \frac{\sigma^2}{n}\right)$.
+  \begin{itemize}
+    \item[]
+  \end{itemize}
+  \pause
+  Huom! Dian väite ei pidä täysin paikkaansa vaan antaa vain intuition aiemmille
+  simulaatioille.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Sovellus: likiarvoinen luottamusväli odotusarvolle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Luottamusvälin määritelmä odotusarvolle}
   \begin{itemize}
-    \item Oletetaan, että $X$ on satunnismuuttuja odotusarvolla $\mu =
+    \item Oletetaan, että $X$ on satunnaismuuttuja odotusarvolla $\mu =
     \mathbb{E}\left(X\right)\in(-\infty, \infty)$. Olkoon $\bm X = (X_1, \ldots,
     X_n)$ satunnaismuuttujan $X$ havaintoja.
     \pause
@@ -394,5 +407,8 @@
     \item laskemalla likiarvoistettuja luottamusvälejä petoksen
     todennäköisyydelle.
   \end{itemize}
+  \pause
+  Kaikki materiaalit löytyvät osoitteesta
+  \url{https://github.com/perej1/clt-teaching}.
 \end{frame}
 \end{document}
