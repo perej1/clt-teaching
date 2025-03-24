@@ -122,19 +122,19 @@
     284 807\approx 0.0017$.
     \pause
     \item Kuinka varma voin olla siitä, että saatu piste-estimaatti on lähellä
-    populaatisuuretta?
+    todellista parametria $\mu$?
     \pause
-    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla
+    \item Voidaanko keskiarvon jakaumasta yleisesti sanoa jotain suurilla
     otosko'oilla $n$?
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Simulaatio}
+\begin{frame}{Simulaatio (1)}
   \begin{enumerate}
     \item Simuloi otos riippumattomia ja samoin jakauneita havaintoja $x_1,
-    \ldots, x_n$ (otoskoko on $n$). Laske keskiarvo
+    \ldots, x_n$. Laske keskiarvo
     \begin{equation*}
       \bar x = \frac{1}{n}\sum_{i=1}^n x_i.
     \end{equation*}
@@ -148,7 +148,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}{Simulaatio (2)}
   \begin{itemize}
     \item Simuloimme otoksia eksponenttijakaumasta $\mathrm{Exp}(1)$
     skaalaparametrilla $\lambda = 1$ (jakauman odotusarvo on $1$). Kyseisen
@@ -208,8 +208,7 @@
 \section{Normaalijakauma}
 
 \begin{frame}
-  Normaalijakauma on absoluuttisesti jatkuva jakauma. Merkitsemme
-  normaalijakaumaa parametrein $\mu\in(-\infty, \infty)$ ja
+  Merkitsemme normaalijakaumaa parametrein $\mu\in(-\infty, \infty)$ ja
   $\sigma^2\in(0,\infty)$ notaatiolla $\n\left(\mu, \sigma^2\right)$. Jakauman
   $\n\left(\mu, \sigma^2\right)$ tiheysfunktio on
   \begin{equation*}
@@ -303,13 +302,13 @@
   Oletetaan, että satunnaismuuttujan $X$ varianssi $0 < \sigma^2 < \infty$ on
   tiedossa. Tällöin keskeisen raja-arvolauseen mukaan
   \begin{equation*}
-    \mathbb{P}\left(z_{\ell} \leq \sqrt{n}\frac{\mu - \bar X}{\sigma}
-    \leq z_u\right) \approx 1 - \alpha,
+    \mathbb{P}\left(z^{(\ell)} \leq \sqrt{n}\frac{\mu - \bar X}{\sigma}
+    \leq z^{(u)}\right) \approx 1 - \alpha,
   \end{equation*}
   \pause
-  jossa väli $[z_\ell, z_u]$ valitaan niin, että
+  jossa väli $[z^{(\ell)}, z^{(u)}]$ valitaan niin, että
   \begin{equation*}
-    \Phi(z_u) - \Phi(z_\ell) = 1-\alpha.
+    \Phi(z^{(u)}) - \Phi(z^{(\ell)}) = 1-\alpha.
   \end{equation*}
   Yllä $F$ on jakauman $\n\left(0,1\right)$ kertymäfunktio.
 \end{frame}
@@ -317,8 +316,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Luottamusvälin approksimointi (2)}
-  Valitsemalla esimerkiksi $z_u = z_{1 - \alpha/2}$ ja $z_\ell = -z_u$ päädymme
-  seuravaan luottamusväliin
+  Olkoon $z_{1-\alpha/2}$ standardinormaalijakauman $(1-\alpha/2)$-kvantiili.
+  Valitsemalla esimerkiksi $z^{(u)} = z_{1 - \alpha/2}$ ja $z^{(\ell)} = -z_{1 -
+  \alpha/2}$ päädymme seuraavaan luottamusväliin
   \begin{equation*}
     \left[\bar X - \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}},
     \bar X + \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}}\right].
