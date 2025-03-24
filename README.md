@@ -26,7 +26,7 @@ Kaikki R koodit ovat kansiossa `R/`. Alla kuvaan eri skriptien tarkoituksen.
 
 - `clt.R`: Simuloimme odotusarvon jakaumaa, kun otoskoko on 1, 5 tai 100. Simulaatiot suoritetaan sekä tasajakaumalle että exponenttijakaumalle.
 
-- `normal.R`- Piirretään kahden eri normaalijakauman tiheysfunktiot.
+- `normal.R`: Piirretään kahden eri normaalijakauman tiheysfunktiot.
 
 - `credit.R`: Lasketaan likiarvoisia luottamusvälejä liittyen
   luottokorttipetoksen todennäköisyyteen.
