@@ -4,10 +4,14 @@ Tässä säiliössä on materiaalit liittyen opetusnäytteeseen, jonka aihe on
 "Keskeinen raja-arvolause ja sen sovellukset liiketoiminnassa". Alla kuvataan
 ensin oppimistavoite, minkä jälkeen tärkeimmät tiedostot listataan kansioittain.
 
-## Oppimistavoite
+## Oppimistavoitteet
 
-Luennon jälkeen osaamme muodostaa likiarvoisen luottamusvälin odotusarvolle
-perustuen keskeiseen raja-arvolauseeseen.
+Luennon jälkeen osaamme
+
+1. Kuvata keskeisen raja-arvolauseen intuitiivisesti ja
+
+2. muodostaa likiarvoisen luottamusvälin odotusarvolle perustuen keskeiseen
+   raja-arvolauseeseen.
 
 ## Diaesitys
 
