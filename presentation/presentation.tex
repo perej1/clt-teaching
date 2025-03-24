@@ -92,6 +92,7 @@
       \item Odotusarvo
       \item Varianssi
       \item Estimaattori
+      \item Suurten lukujen laki
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -115,7 +116,7 @@
   \pause
   Tällöin suurten lukujen laki kertoo, että suurilla $n$
   \begin{equation*}
-    \bar X = \frac{1}{n}\sum_{i=1}^{n} X_i \approx \mathbb{E}\left(X_1\right)
+    \bar X = \frac{1}{n}\sum_{i=1}^{n} X_i \approx \mathbb{E}\left(X_1\right).
   \end{equation*}
   \pause
   Toisin sanoen keskiarvo estimoi odotusarvoa.
@@ -135,7 +136,8 @@
     \item Suurten lukujen laki ei kerro mitään siitä kuinka hyvin keskiarvo
     estimoi odotusarvoa.
     \pause
-    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla otoskoolla $n$?
+    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla
+    otosko'oilla $n$?
   \end{itemize} 
 \end{frame}
 
@@ -165,7 +167,7 @@
     \item Simuloi otos riippumattomia ja samoin jakauneita havaintoja $x_1,
     \ldots, x_n$ (otoskoko on $n$). Laske keskiarvo
     \begin{equation*}
-      \bar x = \frac{1}{n}\sum_{i=1}^n x_i
+      \bar x = \frac{1}{n}\sum_{i=1}^n x_i.
     \end{equation*}
     \pause
     \item Toista yllä oleva toimenpide $m = 1000$ kertaa. Näin meillä on $m$
@@ -306,7 +308,7 @@
   \end{itemize}
   Tällöin normaalijakauman kertymäfunktio voidaan esittää tiheysfunktion avulla
   \begin{equation*}
-    F\left(x\right) = \int_{-\infty}^{x} f(t)\,\mathrm{d}t
+    F\left(x\right) = \int_{-\infty}^{x} f(t)\,\mathrm{d}t.
   \end{equation*}
 \end{frame}
 
@@ -458,6 +460,14 @@
     \left[\bar X - \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}},
     \bar X + \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}}\right].
   \end{equation*}
+  \pause
+  Käytännössä yleensä (tuntematon) keskihajonta korvataan vielä
+  otoskeskihajonnalla $\hat\sigma$, sillä suurten lukujen lain perusteella
+  $\hat\sigma\approx\sigma$. Päädymme luottamusväliin
+  \begin{equation*}
+    \left[\bar X - \frac{\hat\sigma z_{1 - \alpha/2}}{\sqrt{n}},
+    \bar X + \frac{\hat\sigma z_{1 - \alpha/2}}{\sqrt{n}}\right].
+  \end{equation*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -501,7 +511,7 @@
     \item Joten voimme approksimoida $95\%$ luottamusvälin seuraavasti
     \begin{equation*}
       \left[\hat p - z_{1 - \alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}},
-      \hat p + z_{1 - \alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}}\right]
+      \hat p + z_{1 - \alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}}\right].
     \end{equation*}
   \end{itemize}
 \end{frame}
@@ -519,6 +529,12 @@
   \begin{equation*}
     \approx \left[0.0016, 0.0019\right].
   \end{equation*}
+  \pause
+  \begin{itemize}
+    \item[]
+  \end{itemize}
+  Luottamusvälin laskemiseen liittyvät yksityiskohdat löytyvät skriptistä
+  \texttt{credit.R}. 
 \end{frame}
 
 \begin{frame}{Tiivistelmä}
