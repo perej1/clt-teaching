@@ -29,9 +29,9 @@
 \DeclareMathOperator{\n}{\mathrm N}
 
 % Bibliography and style.
-\usepackage[style=authoryear]{biblatex}
-\addbibresource{sources.bib}
-\setbeamertemplate{bibliography item}{}
+%\usepackage[style=authoryear]{biblatex}
+%\addbibresource{sources.bib}
+%\setbeamertemplate{bibliography item}{}
 
 %\usepackage[
 %  backend=biber,
@@ -63,15 +63,15 @@
 
 % Info about presentation
 \title{Keskeinen raja-arvolause ja sen sovellukset liiketoiminnassa}
-%\subtitle{}
-%\author{Jaakko Pere}
+\subtitle{\url{https://github.com/perej1/clt-teaching}}
+\author{Jaakko Pere}
 
 \newdate{date}{25}{3}{2025}
 \date{\displaydate{date}}
 
 
 % Page number
-%\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}[frame number]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,81 +80,83 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Agenda of the presentation}
-\tableofcontents
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Kohdeyleisö}
   \begin{itemize}
-    \item Ensimmäisen ja toisen vuoden kandiopiskelijat
+    \item Ensimmäisen ja toisen vuoden kandiopiskelijat (lukion matematiikka).
+    \pause
+    \item Kurssilla on jo käsitelty seuraavat käsitteet:
+    \begin{itemize}
+      \item Satunnaismuuttuja
+      \item Odotusarvo
+      \item Varianssi
+      \item Estimaattori
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Moraali}
-  \begin{itemize}
-    \item Suurten lukujen laki
-  \end{itemize}
+\begin{frame}{Luennon sisältö}
+  \tableofcontents
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Opetustavoitteet}
-  Luennon jälkeen
-  \begin{enumerate}
-    \item osaamme approksimoida todennäköisyyksiä klassisen keskeisen raja-arvo
-    lauseen avulla,
-  \end{enumerate}
-\end{frame}
+\section{Moraali}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Lyhyt kertaus: Suurten lukujen laki}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Normaalijakauma}
-
-\begin{frame}
-  Normaalijakauma on absoluuttisesti jatkuva jakauma. Merkitsemme
-  normaalijakaumaa parametrein $\mu\in(-\infty, \infty)$ ja
-  $\sigma^2\in(0,\infty)$ notaatiolla $\n\left(\mu, \sigma^2\right)$. Jakauman
-  $\n\left(\mu, \sigma^2\right)$ tiheysfunktio on
+\begin{frame}{Suurten lukujen laki}
+  Olkoon $X_1, \ldots, X_n$ riippumattomia ja samoin jakautuneita
+  satunnaismuuttujia niin, että $\mu = \mathbb{E}\left(X_1\right)\in (-\infty,
+  \infty)$.
+  \pause
+  Tällöin suurten lukujen laki kertoo, että suurilla $n$
   \begin{equation*}
-    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{\left(x-\mu\right)^2}
-    {2\sigma^2}}.
+    \bar X = \frac{1}{n}\sum_{i=1}^{n} X_i \approx \mathbb{E}\left(X_1\right)
   \end{equation*}
   \pause
+  Toisin sanoen keskiarvo estimoi odotusarvoa.
   \begin{itemize}
     \item[]
   \end{itemize}
-  Tällöin normaalijakauman kertymäfunktio voidaan esittää tiheysfunktion avulla
-  \begin{equation*}
-    F\left(x\right) = \int_{-\infty}^{x} f(t)\,\mathrm{d}t
-  \end{equation*}
+  \pause
+  \textcolor{red}{Tarkemmin ilmaistuna
+  $\lim_{n\to\infty}\mathbb{P}\left(\left|\bar X - \mu\right| >
+  \varepsilon\right) = 0$ kaikilla $\varepsilon > 0$.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{normal}
-      \caption{Normaalijakaumat $\n\left(0,1\right)$ (katkoviiva) ja $\n\left(1, 9\right)$ (jatkuva viiva).}
-    \end{figure}
-  \end{center}
+\begin{frame}{Ongelma}
+  \begin{itemize}
+    \item Suurten lukujen laki ei kerro mitään siitä kuinka hyvin keskiarvo
+    estimoi odotusarvoa.
+    \pause
+    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla otoskoolla $n$?
+  \end{itemize} 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Keskeinen raja-arvolause}
+\begin{frame}{Esimerkki: luottokorttipetokset}
+  \begin{itemize}
+    \item Otos sisältää luottokorttitapahtumia Euroopasta syyskuulta 2013.
+    Tapahtumia kirjattiin kahdelta päivältä (Lähde:
+    \href{https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download}{\textcolor{red}{Kaggle}}).
+    \pause
+    \item Luottokorttitapahtumia on yhteensä 284 807, joista 492 luokiteltiin
+    petoksiksi.
+    \pause
+    \item Estimaatti luottokorttipetoksen todennäköisyydelle on $492 / 284
+    807\approx 0.0017$.
+    \pause
+    \item Kuinka varma voin olla siitä, että saatu piste-estimaatti on lähellä
+    populaatisuuretta?
+  \end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -274,13 +276,64 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Opetustavoitteet}
+  Luennon jälkeen osaamme
+  \begin{enumerate}
+    \item approksimoida todennäköisyyksiä klassisen keskeisen raja-arvolauseen
+    avulla ja
+    \pause
+    \item muodostaa likiarvoisen luottamusvälin odotusarvolle perustuen
+    keskeiseen raja-arvolauseeseen.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Normaalijakauma}
+
+\begin{frame}
+  Normaalijakauma on absoluuttisesti jatkuva jakauma. Merkitsemme
+  normaalijakaumaa parametrein $\mu\in(-\infty, \infty)$ ja
+  $\sigma^2\in(0,\infty)$ notaatiolla $\n\left(\mu, \sigma^2\right)$. Jakauman
+  $\n\left(\mu, \sigma^2\right)$ tiheysfunktio on
+  \begin{equation*}
+    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{\left(x-\mu\right)^2}
+    {2\sigma^2}}.
+  \end{equation*}
+  \pause
+  \begin{itemize}
+    \item[]
+  \end{itemize}
+  Tällöin normaalijakauman kertymäfunktio voidaan esittää tiheysfunktion avulla
+  \begin{equation*}
+    F\left(x\right) = \int_{-\infty}^{x} f(t)\,\mathrm{d}t
+  \end{equation*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \begin{center}
+    \begin{figure}
+      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{normal}
+      \caption{Normaalijakaumat $\n\left(0,1\right)$ (katkoviiva) ja $\n\left(1, 9\right)$ (jatkuva viiva).}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Keskeinen raja-arvolause}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
   \begin{teoreema}
     Olkoon $X_1, X_2, \ldots, X_n$ riippumattomia ja samoin jakautuneita
-    satunnaismuuttujia niin, että $\mathbb{E}\left(\left|X_1\right|^2\right) <
-    \infty$. Merkitsemme $\bar X = \frac{1}{n}\sum_{i = 1}^n X_i$, $\mu =
+    satunnaismuuttujia niin, että $0 < \var\left(X_1\right) < \infty$.
+    Merkitsemme $\bar X = \frac{1}{n}\sum_{i = 1}^n X_i$, $\mu =
     \mathbb{E}\left(X_1\right)$ ja $\sigma = \sqrt{\var\left(X_1\right)}$.
-    Tällöin, kun otoskoko $n$ on suuri,
+    Tällöin, kun otoskoko $n$ on suuri, niin
     \begin{equation*}
       \tilde X = \sqrt{n}\frac{\bar X - \mu}{\sigma}
     \end{equation*}
@@ -288,38 +341,79 @@
     \pause
     \begin{equation*}
       \mathbb{P}\left(\tilde X \leq x\right) \approx
-      \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-t^2/2}\,\mathrm{d}t.
+      \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-t^2/2}\,\mathrm{d}t =:
+      \Phi\left(x\right).
     \end{equation*}
   \end{teoreema}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Sovellukset}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Intuitio}
-  Toisin sanoen kun otoskoko $n$ on suuri, niin $\bar X$ noudattaa likimain
-  jakaumaa
+\subsection{Todennäköisyyksien approksimointi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  Keskeisen raja-arvolauseen oletusten pätiessä $\tilde X$ noudattaa likimain
+  normaalijakaumaa, jossa
   \begin{equation*}
-    \n\left(\mu, \frac{\sigma^2}{n}\right).
+    \tilde X = \sqrt{n}\frac{\frac{1}{n}
+    \overbrace{\sum_{i=1}^n X_i}^{=S_n} - \mu}{\sigma}
+    = \frac{S_n - n\mu}{\sqrt{n}\sigma}.
+  \end{equation*}
+  \pause
+  Tällöin
+  \begin{equation*}
+    \mathbb{P}\left(S_n\leq x\right) = \mathbb{P}
+    \left(\underbrace{\frac{S_n - n\mu}{\sqrt{n}\sigma}}_{= \tilde X}\leq
+    \frac{x - n\mu} {\sqrt{n}\sigma}\right)\approx \Phi\left(\frac{x - n\mu}
+    {\sqrt{n}\sigma}\right).
   \end{equation*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Kurssin ulkopuolista asiaa}
+\begin{frame}{Esimerkki}
   \begin{itemize}
-    \item 
+    \item $X_1, \ldots, X_n$ ovat riippumattomia satunnaismuuttujia Bernoullin
+    jakaumasta, $\mathbb{P}\left(X_1 = 1\right) = p$ ja $\mathbb{P}\left(X_1 =
+    0\right) = 1-p$.
+    \pause
+    \item Voimme laskea, että $\mu = \mathbb{E}\left(X_1\right) = p$ ja
+    $\sigma^2 = \var\left(X_1\right) = p(1-p)$.
   \end{itemize}
+  \pause
+  Saamme approksimaation
+  \begin{equation*}
+    \mathbb{P}\left(S_n \leq x\right) \approx \Phi\left(\frac{x - np}
+    {\sqrt{np(1-p)}}\right).
+  \end{equation*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Todennäköisyyksien approksimointi}
+\begin{frame}{Esimerkki: luottokorttipetokset}
+  \begin{itemize}
+    \item Oletetaan, että tiedämme petoksen todennäköisyyden olevan $p =
+    0.0016$.
+    \item Mikä on todennäköisyys havaita vähintään $x = 492$ petosta, kun
+    luottokorttitapahtumia oli kokonaisuudessaan $n = 284807$?
+    \item Approksimoimme
+    \begin{equation*}
+      \mathbb{P}\left(S_n \geq x\right) \approx 1 - \Phi\left(\frac{x - np}
+      {\sqrt{np(1-p)}}\right).
+    \end{equation*}
+  \end{itemize}
+  
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Sovellus: Likiarvoinen luottamusväli}
+\subsection{Likiarvoinen luottamusväli}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -333,7 +427,7 @@
     $\left[\ell\left(\bm X\right), u\left(\bm X\right)\right]$, jolle pätee
     \begin{equation*}
       \mathbb{P}\left(\mu\in\left[\ell\left(\bm X\right), u\left(\bm
-      X\right)\right]\right) = 1 - \alpha
+      X\right)\right]\right) \geq 1 - \alpha.
     \end{equation*}
   \end{itemize}
 \end{frame}
@@ -344,12 +438,13 @@
   Oletetaan, että satunnaismuuttujan $X$ varianssi $0 < \sigma^2 < \infty$ on
   tiedossa. Tällöin keskeisen raja-arvolauseen mukaan
   \begin{equation*}
-    \mathbb{P}\left(z_{\ell} \leq \frac{\mu - \bar X}{\sigma} \leq z_u\right) \approx 1 - \alpha,
+    \mathbb{P}\left(z_{\ell} \leq \sqrt{n}\frac{\mu - \bar X}{\sigma}
+    \leq z_u\right) \approx 1 - \alpha,
   \end{equation*}
   \pause
   jossa väli $[z_\ell, z_u]$ valitaan niin, että
   \begin{equation*}
-    F(z_u) - F(z_\ell) = 1-\alpha.
+    \Phi(z_u) - \Phi(z_\ell) = 1-\alpha.
   \end{equation*}
   Yllä $F$ on jakauman $\n\left(0,1\right)$ kertymäfunktio.
 \end{frame}
@@ -360,8 +455,8 @@
   Valitsemalla esimerkiksi $z_u = z_{1 - \alpha/2}$ ja $z_\ell = -z_u$ päädymme
   seuravaan luottamusväliin
   \begin{equation*}
-    \left[\bar X - \sigma z_{1 - \alpha/2},
-    \bar X + \sigma z_{1 - \alpha/2}\right].
+    \left[\bar X - \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}},
+    \bar X + \frac{\sigma z_{1 - \alpha/2}}{\sqrt{n}}\right].
   \end{equation*}
 \end{frame}
 
@@ -390,8 +485,8 @@
     \item $\mathbb{P}\left(X = 1\right) = p$ ja $\mathbb{P}\left(X = 0\right) =
     1 - p$, jossa tapahtuma $\{X = 1\}$ indikoi petosta ja $\{X = 0\}$ vastaa
     normaalia luottokorttitapahtumaa.
-    \item Otos $x_1, \ldots x_{284807}$ on 0-1 muotoista. Oletamme, että
-    havainnot ovat riippumattomia ja samoin jakautuneita.
+    \item Havainnot $x_1, \ldots x_{284807}$ ovat binäärisiä (0 tai 1).
+    Oletamme, että havainnot ovat riippumattomia ja samoin jakautuneita.
   \end{itemize}
 \end{frame}
 
@@ -405,8 +500,8 @@
     \frac{1}{n}\sum_{i=1}^{284807} x_i$.
     \item Joten voimme approksimoida $95\%$ luottamusvälin seuraavasti
     \begin{equation*}
-      \left[\hat p - z_{1 - \alpha/2}\sqrt{\hat p(1-\hat p)},
-      \hat p + z_{1 - \alpha/2}\sqrt{\hat p(1-\hat p)}\right]
+      \left[\hat p - z_{1 - \alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}},
+      \hat p + z_{1 - \alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}}\right]
     \end{equation*}
   \end{itemize}
 \end{frame}
@@ -417,7 +512,8 @@
   Sijoittamalla lukuarvot
   \begin{itemize}
     \item $\hat p\approx 0.0017$, (\textsf{R} komento \texttt{mean(data)}) ja
-    \item $z_{1 - \alpha / 2} \approx 1.96$ (\textsf{R} komento \texttt{qnorm(1 - 0.05 / 2)})
+    \item $z_{1 - \alpha / 2} \approx 1.96$ (\textsf{R} komento \texttt{qnorm(1
+    - 0.05 / 2)})
   \end{itemize}
   saamme luottamusväliksi
   \begin{equation*}
@@ -426,10 +522,11 @@
 \end{frame}
 
 \begin{frame}{Tiivistelmä}
-  
+  Sovelsimme keskeistä raja-arvolausetta luottokorttipetoksiin
+  \begin{enumerate}
+    \item approksimoimalla petoksien määrän todennäköisyyttä ja
+    \item laskemalla likiarvoistettuja luottamusvälejä petoksen
+    todennäköisyydelle.
+  \end{enumerate}
 \end{frame}
-
-%\begin{frame}[allowframebreaks]{Lähdeluettelo}
-%  \printbibliography
-%\end{frame}
 \end{document}

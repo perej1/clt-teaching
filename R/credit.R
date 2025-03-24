@@ -1,6 +1,8 @@
 library(tidyverse)
 
-# The dataset contains transactions made by credit cards in September 2013 by European cardholders. This dataset presents transactions that occurred in two days, where we have 492 frauds out of 284 807 transactions.
+# The dataset contains transactions made by credit cards in September 2013
+# by European cardholders. This dataset presents transactions that occurred
+# in two days, where we have 492 frauds out of 284 807 transactions.
 
 # Read data, extract the variable giving 
 data <- read_csv("creditcard.csv", col_names = TRUE, col_select = Class,
