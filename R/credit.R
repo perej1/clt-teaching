@@ -21,7 +21,11 @@ p_hat <- mean(data)
 binom::binom.confint(sum(data), length(data), conf.level = 0.95,
                      methods = "asymptotic")
 
-# The confidence interval can be also computed manually
+# Exact confidence interval
+binom::binom.confint(sum(data), length(data), conf.level = 0.95,
+                     methods = "exact")
+
+# The (asymptotic) confidence interval can be also computed manually
 alpha <- 0.05
 z <- qnorm(1 - alpha / 2)
 margin_of_error <- z * sqrt(p_hat * (1 - p_hat) / length(data))
