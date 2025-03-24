@@ -92,7 +92,9 @@
       \item Odotusarvo
       \item Varianssi
       \item Estimaattori
+      \item Luottamusväli
       \item Suurten lukujen laki
+      \item Normaalijakauma
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -105,7 +107,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Moraali}
+\section{Motivointi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -210,39 +212,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Normaalijakauma}
-
-\begin{frame}
-  Merkitsemme normaalijakaumaa parametrein $\mu\in(-\infty, \infty)$ ja
-  $\sigma^2\in(0,\infty)$ notaatiolla $\n\left(\mu, \sigma^2\right)$. Jakauman
-  $\n\left(\mu, \sigma^2\right)$ tiheysfunktio on
-  \begin{equation*}
-    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{\left(x-\mu\right)^2}
-    {2\sigma^2}}.
-  \end{equation*}
-  \pause
-  \begin{itemize}
-    \item[]
-  \end{itemize}
-  Tällöin normaalijakauman kertymäfunktio voidaan esittää tiheysfunktion avulla
-  \begin{equation*}
-    F\left(x\right) = \int_{-\infty}^{x} f(t)\,\mathrm{d}t.
-  \end{equation*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-  \begin{center}
-    \begin{figure}
-      \includegraphics[width=0.7\textwidth, height=0.7\textwidth]{normal}
-      \caption{Normaalijakaumat $\n\left(0,1\right)$ (katkoviiva) ja $\n\left(1, 9\right)$ (jatkuva viiva).}
-    \end{figure}
-  \end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Keskeinen raja-arvolause}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -283,23 +252,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Sovellus: likiarvoinen luottamusväli odotusarvolle}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Luottamusvälin määritelmä odotusarvolle}
-  \begin{itemize}
-    \item Oletetaan, että $X$ on satunnaismuuttuja odotusarvolla $\mu =
-    \mathbb{E}\left(X\right)\in(-\infty, \infty)$. Olkoon $\bm X = (X_1, \ldots,
-    X_n)$ satunnaismuuttujan $X$ havaintoja.
-    \pause
-    \item Luottamustason $1-\alpha$ luottamusväli on satunnaisväli
-    $\left[\ell\left(\bm X\right), u\left(\bm X\right)\right]$, jolle pätee
-    \begin{equation*}
-      \mathbb{P}\left(\mu\in\left[\ell\left(\bm X\right), u\left(\bm
-      X\right)\right]\right) \geq 1 - \alpha.
-    \end{equation*}
-  \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
