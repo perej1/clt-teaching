@@ -1,6 +1,6 @@
 # clt-teaching
 
-Tässä Github säilössä on materiaalit liittyen opetusnäytteeseen, jonka aihe on
+Tässä säiliössä on materiaalit liittyen opetusnäytteeseen, jonka aihe on
 "Keskeinen raja-arvolause ja sen sovellukset liiketoiminnassa". Alla kuvataan
 ensin oppimistavoitteet, minkä jälkeen tärkeimmät tiedostot listataan
 kansioittain.
