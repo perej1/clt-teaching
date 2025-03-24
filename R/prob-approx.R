@@ -1,3 +1,8 @@
+# Here we compute the probability of getting at least x frauds from
+# n transactions, as the probability p of a fraud is known. Results are not
+# presented in the slides.
+
+
 #' Compute 1 - cdf for the binomial distribution
 #'
 #' @param x Number of successes

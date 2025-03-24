@@ -2,18 +2,12 @@
 
 Tässä säiliössä on materiaalit liittyen opetusnäytteeseen, jonka aihe on
 "Keskeinen raja-arvolause ja sen sovellukset liiketoiminnassa". Alla kuvataan
-ensin oppimistavoitteet, minkä jälkeen tärkeimmät tiedostot listataan
-kansioittain.
+ensin oppimistavoite, minkä jälkeen tärkeimmät tiedostot listataan kansioittain.
 
-## Opetustavoitteet
+## Oppimistavoite
 
-Luennon jälkeen osaamme
-
-1. approksimoida todennäköisyyksiä klassisen keskeisen raja-arvolauseen avulla
-   ja
-
-2. muodostaa likiarvoisen luottamusvälin odotusarvolle perustuen keskeiseen
-   raja-arvolauseeseen.
+Luennon jälkeen osaamme muodostaa likiarvoisen luottamusvälin odotusarvolle
+perustuen keskeiseen raja-arvolauseeseen.
 
 ## Diaesitys
 
@@ -22,9 +16,11 @@ tiedoston `presentation.pdf`, jos haluat selailla dioja omalla tietokoneellasi.
 
 ## R koodit ja data
 
-Kaikki R koodit ovat kansiossa `R/`. Alla kuvaan eri skriptien tarkoituksen.
+Kaikki R koodit ovat kansiossa `R/`. Alla kuvataan eri skriptien tarkoitukset.
 
-- `clt.R`: Simuloimme odotusarvon jakaumaa, kun otoskoko on 1, 5 tai 100. Simulaatiot suoritetaan sekä tasajakaumalle että exponenttijakaumalle.
+- `clt.R`: Simuloimme otoskeskiarvon jakaumaa, kun otoskoko on 1, 5 tai 100.
+  Simulaatiot suoritetaan sekä tasajakaumalle että exponenttijakaumalle. Vain
+  tulokset eksponentijakaumalle kuvataan diaesityksessä.
 
 - `normal.R`: Piirretään kahden eri normaalijakauman tiheysfunktiot.
 
@@ -32,7 +28,8 @@ Kaikki R koodit ovat kansiossa `R/`. Alla kuvaan eri skriptien tarkoituksen.
   luottokorttipetoksen todennäköisyyteen.
 
 - `prob-approx.R`: Approksimoidaan luottokorttipetoksien määrien
-  todennäköisyyttä, kun tiedämme perustana olevan mallin.
+  todennäköisyyttä, kun tiedämme perustana olevan mallin. Tuloksia ei raportoida
+  diaesityksessä.
 
 Skriptissä `credit.R` käytetty data löytyy
 [Kagglesta](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download).

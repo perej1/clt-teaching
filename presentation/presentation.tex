@@ -109,40 +109,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Suurten lukujen laki}
-  Olkoon $X_1, \ldots, X_n$ riippumattomia ja samoin jakautuneita
-  satunnaismuuttujia niin, että $\mu = \mathbb{E}\left(X_1\right)\in (-\infty,
-  \infty)$.
-  \pause
-  Tällöin suurten lukujen laki kertoo, että suurilla $n$
-  \begin{equation*}
-    \bar X = \frac{1}{n}\sum_{i=1}^{n} X_i \approx \mathbb{E}\left(X_1\right).
-  \end{equation*}
-  \pause
-  Toisin sanoen keskiarvo estimoi odotusarvoa.
-  \begin{itemize}
-    \item[]
-  \end{itemize}
-  \pause
-  \textcolor{red}{Tarkemmin ilmaistuna
-  $\lim_{n\to\infty}\mathbb{P}\left(\left|\bar X - \mu\right| >
-  \varepsilon\right) = 0$ kaikilla $\varepsilon > 0$.}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Ongelma}
-  \begin{itemize}
-    \item Suurten lukujen laki ei kerro mitään siitä kuinka hyvin keskiarvo
-    estimoi odotusarvoa.
-    \pause
-    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla
-    otosko'oilla $n$?
-  \end{itemize} 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}{Esimerkki: luottokorttipetokset}
   \begin{itemize}
     \item Otos sisältää luottokorttitapahtumia Euroopasta syyskuulta 2013.
@@ -157,6 +123,9 @@
     \pause
     \item Kuinka varma voin olla siitä, että saatu piste-estimaatti on lähellä
     populaatisuuretta?
+    \pause
+    \item Voidaanko keskiarvon jakaumasta sanoa jotain edes suurilla
+    otosko'oilla $n$?
   \end{itemize}
 \end{frame}
 
@@ -181,7 +150,7 @@
 
 \begin{frame}
   \begin{itemize}
-    \item Seuraavaksi simuloimme otoksia eksponenttijakaumasta $\mathrm{Exp}(1)$
+    \item Simuloimme otoksia eksponenttijakaumasta $\mathrm{Exp}(1)$
     skaalaparametrilla $\lambda = 1$ (jakauman odotusarvo on $1$). Kyseisen
     eksponentijakauman tiheysfunktio on
     \begin{equation*}
@@ -229,15 +198,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Opetustavoitteet}
-  Luennon jälkeen osaamme
-  \begin{enumerate}
-    \item approksimoida todennäköisyyksiä klassisen keskeisen raja-arvolauseen
-    avulla ja
-    \pause
-    \item muodostaa likiarvoisen luottamusvälin odotusarvolle perustuen
-    keskeiseen raja-arvolauseeseen.
-  \end{enumerate}
+\begin{frame}{Opetustavoite}
+  Luennon jälkeen osaamme muodostaa likiarvoisen luottamusvälin odotusarvolle
+  perustuen keskeiseen raja-arvolauseeseen.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -302,71 +265,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Sovellukset}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Todennäköisyyksien approksimointi}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-  Keskeisen raja-arvolauseen oletusten pätiessä $\tilde X$ noudattaa likimain
-  normaalijakaumaa, jossa
-  \begin{equation*}
-    \tilde X = \sqrt{n}\frac{\frac{1}{n}
-    \overbrace{\sum_{i=1}^n X_i}^{=S_n} - \mu}{\sigma}
-    = \frac{S_n - n\mu}{\sqrt{n}\sigma}.
-  \end{equation*}
-  \pause
-  Tällöin
-  \begin{equation*}
-    \mathbb{P}\left(S_n\leq x\right) = \mathbb{P}
-    \left(\underbrace{\frac{S_n - n\mu}{\sqrt{n}\sigma}}_{= \tilde X}\leq
-    \frac{x - n\mu} {\sqrt{n}\sigma}\right)\approx \Phi\left(\frac{x - n\mu}
-    {\sqrt{n}\sigma}\right).
-  \end{equation*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Esimerkki}
-  \begin{itemize}
-    \item $X_1, \ldots, X_n$ ovat riippumattomia satunnaismuuttujia Bernoullin
-    jakaumasta, $\mathbb{P}\left(X_1 = 1\right) = p$ ja $\mathbb{P}\left(X_1 =
-    0\right) = 1-p$.
-    \pause
-    \item Voimme laskea, että $\mu = \mathbb{E}\left(X_1\right) = p$ ja
-    $\sigma^2 = \var\left(X_1\right) = p(1-p)$.
-  \end{itemize}
-  \pause
-  Saamme approksimaation
-  \begin{equation*}
-    \mathbb{P}\left(S_n \leq x\right) \approx \Phi\left(\frac{x - np}
-    {\sqrt{np(1-p)}}\right).
-  \end{equation*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Esimerkki: luottokorttipetokset}
-  \begin{itemize}
-    \item Oletetaan, että tiedämme petoksen todennäköisyyden olevan $p =
-    0.0016$.
-    \item Mikä on todennäköisyys havaita vähintään $x = 492$ petosta, kun
-    luottokorttitapahtumia oli kokonaisuudessaan $n = 284807$?
-    \item Approksimoimme
-    \begin{equation*}
-      \mathbb{P}\left(S_n \geq x\right) \approx 1 - \Phi\left(\frac{x - np}
-      {\sqrt{np(1-p)}}\right).
-    \end{equation*}
-  \end{itemize}
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Likiarvoinen luottamusväli}
+\section{Sovellus: likiarvoinen luottamusväli odotusarvolle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -490,10 +389,10 @@
 
 \begin{frame}{Tiivistelmä}
   Sovelsimme keskeistä raja-arvolausetta luottokorttipetoksiin
-  \begin{enumerate}
-    \item approksimoimalla petoksien määrän todennäköisyyttä ja
+  \pause
+  \begin{itemize}
     \item laskemalla likiarvoistettuja luottamusvälejä petoksen
     todennäköisyydelle.
-  \end{enumerate}
+  \end{itemize}
 \end{frame}
 \end{document}
