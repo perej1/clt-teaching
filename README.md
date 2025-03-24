@@ -22,14 +22,8 @@ Kaikki R koodit ovat kansiossa `R/`. Alla kuvataan eri skriptien tarkoitukset.
   Simulaatiot suoritetaan sekä tasajakaumalle että exponenttijakaumalle. Vain
   tulokset eksponentijakaumalle kuvataan diaesityksessä.
 
-- `normal.R`: Piirretään kahden eri normaalijakauman tiheysfunktiot.
-
 - `credit.R`: Lasketaan likiarvoisia luottamusvälejä liittyen
   luottokorttipetoksen todennäköisyyteen.
-
-- `prob-approx.R`: Approksimoidaan luottokorttipetoksien määrien
-  todennäköisyyttä, kun tiedämme perustana olevan mallin. Tuloksia ei raportoida
-  diaesityksessä.
 
 Skriptissä `credit.R` käytetty data löytyy
 [Kagglesta](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download).
